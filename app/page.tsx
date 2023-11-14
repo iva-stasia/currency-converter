@@ -1,3 +1,4 @@
+import { error } from "console";
 import { fetchCurrencies, fetchRate, fetchRates } from "./lib/data";
 import { ConverterForm } from "./ui/converter-form";
 
@@ -5,7 +6,6 @@ type HomeProps = {
   searchParams?: {
     from?: string;
     to?: string;
-    amount?: string;
   };
 };
 

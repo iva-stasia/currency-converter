@@ -21,7 +21,7 @@ export default function Nav() {
       {links.map((link) => (
         <Link
           key={link.name}
-          href={link.href}
+          href={pathname === link.href ? "" : link.href}
           className={clsx(
             "px-4 py-2 flex-1 text-center rounded-lg hover:text-primary-light transition-colors",
             {

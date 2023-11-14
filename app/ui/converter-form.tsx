@@ -6,16 +6,17 @@ import InputAmount from "./input-amount";
 import SwitchCurrency from "./switch-currency";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { CurrencyContext } from "../context/currency-context";
+import { DEFAULT_FROM_CURRENCY, DEFAULT_TO_CURRENCY } from "../lib/constant";
 
-type ConverterForm = {
+type ConverterFormProps = {
   currencies: string[] | undefined;
   exchangeRate: number | undefined;
 };
 
-const DEFAULT_FROM_CURRENCY = "USD";
-const DEFAULT_TO_CURRENCY = "EUR";
-
-export function ConverterForm({ currencies, exchangeRate }: ConverterForm) {
+export function ConverterForm({
+  currencies,
+  exchangeRate,
+}: ConverterFormProps) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -65,8 +66,6 @@ export function ConverterForm({ currencies, exchangeRate }: ConverterForm) {
     setAmount(value);
     setAmountInFromCurrency(false);
   }
-
-  if (!currencies || !exchangeRate) return;
 
   return (
     <div className="flex flex-col items-center gap-2">

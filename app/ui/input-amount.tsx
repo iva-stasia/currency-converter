@@ -7,7 +7,7 @@ type InputAmountProps = {
   placeholder: string;
   onChangeAmount: (value: string) => void;
   amount: string | null;
-  exchangeRate: number;
+  exchangeRate?: number;
 };
 
 export default function InputAmount({
@@ -26,12 +26,14 @@ export default function InputAmount({
 
     const params = new URLSearchParams(searchParams);
 
-    if (amount) {
+    if (amount && exchangeRate) {
       const newAmount =
         label === "from"
           ? amount
           : (Number(amount) / exchangeRate).toFixed(2).toString();
       params.set("amount", newAmount);
+    } else if (amount) {
+      params.set("amount", amount);
     } else {
       params.delete("amount");
     }

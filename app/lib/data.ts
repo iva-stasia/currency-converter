@@ -32,8 +32,6 @@ export async function fetchRate(
     const response = await fetch(url);
     const data = (await response.json()) as RatesData;
 
-    // console.log(data);
-
     return Object.values(data.data)[0];
   } catch (error) {
     console.error(error);
