@@ -59,28 +59,28 @@ export default function CurrencySelect({
                 <Listbox.Option
                   key={currency}
                   value={currency}
-                  className={({ active }) =>
-                    `relative cursor-default select-none px-4 py-2 pl-10 ${
-                      active ? "bg-primary-light text-slate-900" : "text-gray"
-                    }`
-                  }
+                  className={`relative cursor-default select-none px-4 py-2 pl-10 ${
+                    currentCurrency === currency
+                      ? "bg-primary-light text-slate-900"
+                      : "text-gray"
+                  } hover:bg-primary-light hover:text-slate-900 hover:cursor-pointer`}
                 >
-                  {({ selected }) => (
-                    <>
-                      <span
-                        className={`block truncate ${
-                          selected ? "font-medium" : "font-normal"
-                        }`}
-                      >
-                        {currency}
+                  <>
+                    <span
+                      className={`block truncate ${
+                        currentCurrency === currency
+                          ? "font-medium"
+                          : "font-normal"
+                      }`}
+                    >
+                      {currency}
+                    </span>
+                    {currentCurrency === currency ? (
+                      <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                        <CheckIcon className="h-5 w-5" aria-hidden="true" />
                       </span>
-                      {selected ? (
-                        <span className="absolute inset-y-0 left-0 flex items-center pl-3">
-                          <CheckIcon className="h-5 w-5" aria-hidden="true" />
-                        </span>
-                      ) : null}
-                    </>
-                  )}
+                    ) : null}
+                  </>
                 </Listbox.Option>
               ))}
             </Listbox.Options>

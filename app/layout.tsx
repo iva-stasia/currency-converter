@@ -20,9 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <CurrencyProvider>
         <body className={poppins.className}>
-          <div className="w-[460px] p-4 h-[100svh] sm:h-auto overflow-hidden flex flex-col gap-4 ">
+          <div className="w-[460px] p-4 h-[100svh] sm:h-auto flex flex-col gap-4 ">
             <Nav />
-            <main className="p-4 overflow-auto bg-background-light border-2 border-border rounded-xl">
+            <main className="p-4 bg-background-light border-2 border-border rounded-xl">
               {children}
             </main>
           </div>
