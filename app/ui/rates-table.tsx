@@ -12,7 +12,7 @@ export function RatesTable({ rates }: RatesTableProps) {
   const { amount } = useContext(CurrencyContext);
 
   return rates ? (
-    <div className="mt-2 max-h-96 overflow-auto">
+    <div className="mt-2 max-h-full sm:max-h-96 overflow-auto">
       <div className="py-2 flex justify-between text-slate-400">
         <span className="basis-1/3">Currency</span>
         <span className="basis-1/3 text-end">Rate</span>

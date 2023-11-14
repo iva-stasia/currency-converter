@@ -25,7 +25,7 @@ export function RatesForm({ currencies }: RatesFormProps) {
     }
 
     if (!searchParams.get("amount")) {
-      params.set("amount", "1");
+      params.set("amount", amount || "1");
     }
 
     replace(`${pathname}?${params.toString()}`);
